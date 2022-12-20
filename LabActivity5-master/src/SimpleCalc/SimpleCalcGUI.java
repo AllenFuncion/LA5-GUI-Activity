@@ -1,11 +1,13 @@
 package SimpleCalc;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class SimpleCalcGUI extends JFrame{
     private JPanel mainPanel;
     private JTextField tf1Number;
-    private JComboBox cbSymbol;
+    private JComboBox cmbSymbol;
     private JButton btnResult;
     private JPanel mainPanel1;
     private JPanel panel1;
@@ -17,8 +19,40 @@ public class SimpleCalcGUI extends JFrame{
     private JLabel jlResult;
     private JTextField tfResult;
     private JPanel resultPanel;
-
+    public SimpleCalcGUI() {
+        setContentPane(mainPanel);
+        setTitle("Leap Year Checker");
+        setSize(550, 300);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setVisible(true);
+        cmbSymbol.addItem("+");
+        cmbSymbol.addItem("-");
+        cmbSymbol.addItem("*");
+        cmbSymbol.addItem("/");
+        btnResult.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int n1 = Integer.parseInt(tf1Number.getText());
+                int n2 = Integer.parseInt(tf2Number.getText());
+                int result = 0;
+                String sym = cmbSymbol.getSelectedItem().toString();
+                if (sym == "+"){
+                    result = n1 + n2;
+                    tfResult.setText(String.valueOf(result));
+                } else if (sym == "-") {
+                    result = n1 - n2;
+                    tfResult.setText(String.valueOf(result));
+                } else if (sym == "*") {
+                    result = n1 * n2;
+                    tfResult.setText(String.valueOf(result));
+                } else {
+                    result = n1 / n2;
+                    tfResult.setText(String.valueOf(result));
+                }
+            }
+        });
+    }
     public static void main(String[] args) {
-
+        SimpleCalcGUI calcu = new SimpleCalcGUI();
     }
 }
