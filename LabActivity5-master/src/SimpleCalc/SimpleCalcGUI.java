@@ -2,7 +2,7 @@ package SimpleCalc;
 
 import javax.swing.*;
 
-public class SimpleCalcGUI {
+public class SimpleCalcGUI extends JFrame{
     private JPanel mainPanel;
     private JTextField tf1Number;
     private JComboBox cbSymbol;
@@ -17,4 +17,8 @@ public class SimpleCalcGUI {
     private JLabel jlResult;
     private JTextField tfResult;
     private JPanel resultPanel;
+
+    public static void main(String[] args) {
+
+    }
 }
