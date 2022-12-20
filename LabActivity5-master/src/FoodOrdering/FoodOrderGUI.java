@@ -1,9 +1,6 @@
 package FoodOrdering;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 public class FoodOrderGUI extends JFrame{
     private JLabel jlFoods;
     private JCheckBox cbBurger;
@@ -28,8 +25,14 @@ public class FoodOrderGUI extends JFrame{
     private JPanel btnPanel;
     private JPanel mainPanel;
     private JButton btnOrder;
-
+    public FoodOrderGUI() {
+        setContentPane(mainPanel);
+        setTitle("Leap Year Checker");
+        setSize(450, 470);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setVisible(true);
+    }
     public static void main(String[] args) {
-
+        FoodOrderGUI order = new FoodOrderGUI();
     }
 }
