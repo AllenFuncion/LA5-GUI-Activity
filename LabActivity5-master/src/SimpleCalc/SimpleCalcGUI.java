@@ -32,22 +32,27 @@ public class SimpleCalcGUI extends JFrame{
         btnResult.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int n1 = Integer.parseInt(tf1Number.getText());
-                int n2 = Integer.parseInt(tf2Number.getText());
-                int result = 0;
-                String sym = cmbSymbol.getSelectedItem().toString();
-                if (sym == "+"){
-                    result = n1 + n2;
-                    tfResult.setText(String.valueOf(result));
-                } else if (sym == "-") {
-                    result = n1 - n2;
-                    tfResult.setText(String.valueOf(result));
-                } else if (sym == "*") {
-                    result = n1 * n2;
-                    tfResult.setText(String.valueOf(result));
-                } else {
-                    result = n1 / n2;
-                    tfResult.setText(String.valueOf(result));
+                try {
+                    int n1 = Integer.parseInt(tf1Number.getText());
+                    int n2 = Integer.parseInt(tf2Number.getText());
+                    int result = 0;
+                    String sym = cmbSymbol.getSelectedItem().toString();
+                    if (sym == "+"){
+                        result = n1 + n2;
+                        tfResult.setText(String.valueOf(result));
+                    } else if (sym == "-") {
+                        result = n1 - n2;
+                        tfResult.setText(String.valueOf(result));
+                    } else if (sym == "*") {
+                        result = n1 * n2;
+                        tfResult.setText(String.valueOf(result));
+                    } else {
+                        result = n1 / n2;
+                        tfResult.setText(String.valueOf(result));
+                    }
+                } catch (NumberFormatException nfe) {
+                    JFrame f = new SimpleCalcGUI();
+                    JOptionPane.showMessageDialog(f, "Invalid Input");
                 }
             }
         });
