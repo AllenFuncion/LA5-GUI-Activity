@@ -1,8 +1,10 @@
 package FoodOrdering;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class FoodOrderGUI {
+public class FoodOrderGUI extends JFrame{
     private JLabel jlFoods;
     private JCheckBox cbBurger;
     private JCheckBox cbFries;
@@ -26,4 +28,8 @@ public class FoodOrderGUI {
     private JPanel btnPanel;
     private JPanel mainPanel;
     private JButton btnOrder;
+
+    public static void main(String[] args) {
+
+    }
 }
