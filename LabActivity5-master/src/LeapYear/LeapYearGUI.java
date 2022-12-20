@@ -20,13 +20,17 @@ public class LeapYearGUI extends JFrame {
         btnCheckYear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String year = tfYear.getText();
-                int y = Integer.parseInt(year);
                 JFrame f = new LeapYearGUI();
-                if (((y % 4 == 0) && (y % 100!= 0)) || (y % 400 == 0))
-                    JOptionPane.showMessageDialog(f, "Leap year");
-                else {
-                    JOptionPane.showMessageDialog(f, "Not a leap year");
+                try {
+                    String year = tfYear.getText();
+                    int y = Integer.parseInt(year);
+                    if (((y % 4 == 0) && (y % 100!= 0)) || (y % 400 == 0))
+                        JOptionPane.showMessageDialog(f, "Leap year");
+                    else {
+                        JOptionPane.showMessageDialog(f, "Not a leap year");
+                    }
+                } catch (NumberFormatException nfe) {
+                    JOptionPane.showMessageDialog(f, "Invalid Input");
                 }
             }
         });
